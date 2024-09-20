@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #599bd9;
+    background-color: #f4f4f4;
 }
 
 .container {
@@ -54,7 +54,7 @@ input[type="number"] {
     font-weight: bold;
 }
 
-/* Button styling from Uiverse.io */
+/* Button styling with new color */
 .btn {
     position: relative;
     font-size: 17px;
@@ -67,8 +67,8 @@ input[type="number"] {
     border: none;
     font-family: inherit;
     font-weight: 500;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: #599bd9; /* اللون الجديد للأزرار */
     width: 100%;
 }
 
@@ -96,7 +96,7 @@ input[type="number"] {
 }
 
 .btn::after {
-    background-color: #fff;
+    background-color: #599bd9; /* اللون الجديد للأزرار */
 }
 
 .btn:hover::after {
