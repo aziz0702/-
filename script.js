@@ -47,7 +47,12 @@ function calculateTotalTax() {
     });
 
     resultsHTML += `<h3>الضريبة الإجمالية: ${totalTax.toFixed(2)}</h3>`;
-    // هنا يمكن إزالة المجموع بعد الضريبة حسب طلبك السابق.
 
     document.getElementById("result").innerHTML = resultsHTML;
+}
+
+function resetAll() {
+    document.getElementById("centers-container").innerHTML = '';
+    document.getElementById("result").innerHTML = '';
+    centerCount = 0;
 }
