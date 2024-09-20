@@ -1,65 +1,53 @@
-let centerCount = 0; // عداد المراكز المضافة
+let centerCount = 0;
 
-// وظيفة لإضافة مركز جديد
 function addCenter() {
-    centerCount++; // زيادة عدد المراكز
+    centerCount++;
 
-    // إنشاء عناصر HTML لإدخال المبلغ لكل مركز
-    const container = document.getElementById('centers-container');
-    const centerDiv = document.createElement('div');
-    centerDiv.id = 'center-' + centerCount;
-    centerDiv.style.marginBottom = '10px';
+    const centerDiv = document.createElement("div");
+    centerDiv.classList.add("center-div");
 
-    const label = document.createElement('label');
-    label.innerText = 'المبلغ لمركز ' + centerCount + ': ';
-    label.style.fontSize = '18px';
+    const centerLabel = document.createElement("label");
+    centerLabel.textContent = `المبلغ للمركز ${centerCount}:`;
+    centerDiv.appendChild(centerLabel);
 
-    const input = document.createElement('input');
-    input.type = 'number';
-    input.placeholder = 'أدخل المبلغ';
-    input.id = 'amount-' + centerCount;
-    input.style.padding = '10px';
-    input.style.fontSize = '16px';
-    input.style.borderRadius = '5px';
-    input.style.marginLeft = '10px';
-    input.style.width = '100%';
+    const centerInput = document.createElement("input");
+    centerInput.type = "number";
+    centerInput.placeholder = "أدخل المبلغ";
+    centerInput.classList.add("center-input");
+    centerDiv.appendChild(centerInput);
 
-    centerDiv.appendChild(label);
-    centerDiv.appendChild(input);
-    container.appendChild(centerDiv);
+    document.getElementById("centers-container").appendChild(centerDiv);
 }
 
-// وظيفة لحساب الضرائب لكل مركز
 function calculateTotalTax() {
-    let totalTax = 0; // الضريبة الإجمالية
-    let resultContainer = document.getElementById('result-container');
-    resultContainer.innerHTML = ''; // إعادة تعيين النتائج
+    const centers = document.querySelectorAll(".center-input");
+    let totalTax = 0;
+    let totalAfterTax = 0;
+    let resultsHTML = '';
 
-    for (let i = 1; i <= centerCount; i++) {
-        let amount = document.getElementById('amount-' + i).value;
+    centers.forEach((center, index) => {
+        const amount = parseFloat(center.value);
 
-        // التحقق من القيمة السالبة
-        if (amount < 0) {
-            resultContainer.innerHTML = 'المبلغ الذي أدخلته بالسالب. الرجاء إدخال المبلغ بدون موجب أو سالب.';
+        if (isNaN(amount)) {
+            resultsHTML += `<p>الرجاء إدخال مبلغ صالح للمركز ${index + 1}</p>`;
             return;
         }
 
-        // حساب الضريبة لكل مركز
-        let tax = amount * 0.25;
-        totalTax += parseFloat(tax); // إضافة الضريبة الإجمالية
+        if (amount < 0) {
+            resultsHTML += `<p>المبلغ الذي أدخلته للمركز ${index + 1} بالسالب. الرجاء إدخال المبلغ بدون موجب أو سالب.</p>`;
+            return;
+        }
 
-        // عرض نتيجة الضريبة لكل مركز
-        let result = document.createElement('p');
-        result.innerText = 'مركز ' + i + ': الضريبة = ' + tax + ' ريال';
-        result.style.fontSize = '18px';
-        resultContainer.appendChild(result);
-    }
+        const tax = amount * 0.25;
+        const amountAfterTax = amount - tax;
+        totalTax += tax;
+        totalAfterTax += amountAfterTax;
 
-    // عرض الضريبة الإجمالية فقط
-    let totalResult = document.createElement('p');
-    totalResult.innerText = 'الضريبة الإجمالية: ' + totalTax + ' ريال';
-    totalResult.style.fontWeight = 'bold';
-    totalResult.style.fontSize = '20px';
-    totalResult.style.marginTop = '20px';
-    resultContainer.appendChild(totalResult);
+        resultsHTML += `<p>المركز ${index + 1}: الضريبة المأخوذة: ${tax.toFixed(2)} | المبلغ بعد الضريبة: ${amountAfterTax.toFixed(2)}</p>`;
+    });
+
+    resultsHTML += `<h3>الضريبة الإجمالية: ${totalTax.toFixed(2)}</h3>`;
+    // هنا يمكن إزالة المجموع بعد الضريبة حسب طلبك السابق.
+
+    document.getElementById("result").innerHTML = resultsHTML;
 }
