@@ -117,6 +117,18 @@ input[type="number"] {
     opacity: 0;
 }
 
+/* تنسيق النتائج */
+#result p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+#result h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #599bd9; /* نفس لون الأزرار */
+}
+
 /* Footer */
 .footer {
     text-align: center;
