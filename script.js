@@ -32,7 +32,6 @@ function addCenter() {
 // وظيفة لحساب الضرائب لكل مركز
 function calculateTotalTax() {
     let totalTax = 0; // الضريبة الإجمالية
-    let totalAmountAfterTax = 0; // المبلغ الإجمالي بعد إضافة الضريبة
     let resultContainer = document.getElementById('result-container');
     resultContainer.innerHTML = ''; // إعادة تعيين النتائج
 
@@ -47,20 +46,18 @@ function calculateTotalTax() {
 
         // حساب الضريبة لكل مركز
         let tax = amount * 0.25;
-        let amountAfterTax = parseFloat(amount) + parseFloat(tax);
         totalTax += parseFloat(tax); // إضافة الضريبة الإجمالية
-        totalAmountAfterTax += amountAfterTax; // إضافة المبلغ بعد الضريبة
 
-        // عرض نتيجة الضريبة والمبلغ بعد الضريبة لكل مركز
+        // عرض نتيجة الضريبة لكل مركز
         let result = document.createElement('p');
-        result.innerText = 'مركز ' + i + ': المبلغ بعد الضريبة = ' + amountAfterTax + ' ريال. (الضريبة: ' + tax + ' ريال)';
+        result.innerText = 'مركز ' + i + ': الضريبة = ' + tax + ' ريال';
         result.style.fontSize = '18px';
         resultContainer.appendChild(result);
     }
 
-    // عرض الضريبة الإجمالية والمبلغ الإجمالي بعد الضريبة
+    // عرض الضريبة الإجمالية فقط
     let totalResult = document.createElement('p');
-    totalResult.innerText = 'الضريبة الإجمالية: ' + totalTax + ' ريال. المبلغ الإجمالي بعد الضريبة: ' + totalAmountAfterTax + ' ريال';
+    totalResult.innerText = 'الضريبة الإجمالية: ' + totalTax + ' ريال';
     totalResult.style.fontWeight = 'bold';
     totalResult.style.fontSize = '20px';
     totalResult.style.marginTop = '20px';
