@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حساب الضريبة</title>
+    <title>حاسبة الضريبة</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h2>احسب 25% ضريبة لكل مركز</h2>
-        
-        <!-- منطقة لإضافة المراكز -->
-        <div id="centers-container"></div>
-        
-        <!-- زر لإضافة مراكز جديدة -->
-        <button class="btn" id="add-center-btn" onclick="addCenter()">إضافة مركز</button>
-        
-        <!-- زر لحساب الضرائب -->
-        <button class="btn" id="calculate-btn" onclick="calculateTotalTax()">احسب الضريبة</button>
+        <!-- الشعار -->
+        <div class="logo-container">
+            <img src="/mnt/data/WhatsApp Image 2024-09-10 at 5.37.40 PM.jpeg" alt="North Kingdom Logo" class="logo">
+        </div>
 
-        <!-- منطقة عرض النتائج -->
-        <div id="result-container" style="margin-top: 20px;"></div>
+        <h2>حاسبة الضريبة</h2>
+
+        <!-- زر إضافة مركز -->
+        <button id="add-center-btn" class="btn" onclick="addCenter()">إضافة مركز</button>
+        
+        <!-- إدخال المراكز -->
+        <div id="centers-container"></div>
+
+        <!-- زر حساب الضريبة -->
+        <button id="calculate-btn" class="btn" onclick="calculateTotalTax()">احسب الضريبة</button>
+
+        <!-- نتيجة الحساب -->
+        <div id="result-container">
+            <p id="result"></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
