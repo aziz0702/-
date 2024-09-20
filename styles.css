@@ -50,6 +50,12 @@ input[type="number"] {
     width: 100%; /* جعل الزر عريضًا */
 }
 
+/* زر إعادة تعيين */
+.reset-btn {
+    margin-top: 20px;
+    background-color: #e74c3c; /* لون مميز لإعادة التعيين */
+}
+
 #result {
     margin-top: 20px;
     font-size: 18px;
