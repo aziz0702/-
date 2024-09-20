@@ -8,10 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <h2>الرجاء إدخال إجمالي الجوائز وغيرها لحسب الضريبة ( نسبة الضريبة هي 25% )</h2>
-        <input type="number" id="amount" placeholder="أدخل المبلغ">
-        <button class="btn" onclick="calculateTax()">احسب الضريبة</button>
-        <p id="result"></p>
+        <h2>احسب 25% ضريبة لكل مركز</h2>
+        
+        <!-- منطقة لإضافة المراكز -->
+        <div id="centers-container"></div>
+        
+        <!-- زر لإضافة مراكز جديدة -->
+        <button class="btn" onclick="addCenter()">إضافة مركز</button>
+        
+        <!-- زر لحساب الضرائب -->
+        <button class="btn" onclick="calculateTotalTax()">احسب الضريبة</button>
+
+        <!-- منطقة عرض النتائج -->
+        <div id="result-container" style="margin-top: 20px;"></div>
     </div>
 
     <script src="script.js"></script>
