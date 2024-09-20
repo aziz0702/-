@@ -25,6 +25,7 @@ h2 {
     font-size: 24px;
 }
 
+/* إدخال المبالغ */
 input[type="number"] {
     width: 100%;
     padding: 10px;
@@ -54,7 +55,18 @@ input[type="number"] {
     font-weight: bold;
 }
 
-/* Button styling with new color */
+/* الشعار */
+.logo-container {
+    text-align: center; /* لجعل الصورة في المنتصف */
+    margin-bottom: 20px; /* مسافة بين الشعار وباقي المحتوى */
+}
+
+.logo {
+    width: 150px; /* عرض متوسط */
+    height: auto; /* المحافظة على نسبة الأبعاد */
+}
+
+/* تنسيق الأزرار */
 .btn {
     position: relative;
     font-size: 17px;
