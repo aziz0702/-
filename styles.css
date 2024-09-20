@@ -34,6 +34,20 @@ input[type="number"] {
     border: 1px solid #ccc;
 }
 
+#result-container {
+    margin-top: 20px;
+}
+
+#add-center-btn {
+    margin-bottom: 20px; /* إبعاد زر "إضافة مركز" */
+}
+
+#calculate-btn {
+    margin-top: 20px; /* إضافة مسافة بين الزرين */
+    display: block;
+    width: 100%; /* جعل الزر عريضًا */
+}
+
 #result {
     margin-top: 20px;
     font-size: 18px;
@@ -54,7 +68,7 @@ input[type="number"] {
     font-family: inherit;
     font-weight: 500;
     color: black;
-    background-color: #6be646;
+    background-color: white;
     width: 100%;
 }
 
@@ -82,7 +96,7 @@ input[type="number"] {
 }
 
 .btn::after {
-    background-color: #6be646;
+    background-color: #fff;
 }
 
 .btn:hover::after {
